@@ -14,9 +14,10 @@
             <p
               class="text-white mt-0 mb-5"
             >Esta é a sua página de perfil, aqui você pode visualizar os seus dados, alterá-los, ou excluir e encerrar sua conta</p>
-            <a href="#!" class="btn mr-2 btn-info">Editar Perfil</a>
-
-            <base-button type="info" class="ml-4 btn btn-danger">Excluir</base-button>
+            <router-link to="/edit_profile">
+              <span class="btn mr-2 btn-info">Editar Perfil</span>
+            </router-link>
+            <base-button @click="deleteUsuario(id)" type="danger" class="ml-3">Excluir</base-button>
           </div>
         </div>
       </div>
@@ -34,7 +35,7 @@
               </div>
             </div>
 
-            <div class="card-body pt-0 pt-md-4">
+            <div class="card-body pt-4">
               <div class="text-center mt-5">
                 <h3 class="capitalize">{{usuario[0].no_usuario}}</h3>
                 <div class="h5 font-weight-300 capitalize">
@@ -64,17 +65,29 @@ export default {
   data() {
     return {
       usuario: "",
+      id: null,
       nome: "Usuário"
     };
   },
   methods: {
     getUsuario() {
-      this.$http.get(`/usuario?id=13`).then(async res => {
+      this.$http.get(`/usuario?id=12`).then(async res => {
         this.usuario = await res.data;
         const name = await this.usuario[0].no_usuario;
         const firstName = name.split(" ");
         this.nome = firstName[0];
       });
+    },
+
+    deleteUsuario(id) {
+      this.id = this.usuario[0].pk_usuario;
+      if (
+        confirm("Esta operaçāo é irreversível. Deseja apagar o seu perfil?")
+      ) {
+        this.$http.delete(`/usuario?id=${id}`).then(function(response) {
+          window.location = 
+        });
+      }
     }
   },
   mounted() {

@@ -32,6 +32,10 @@
             ></i>
             {{row.bounceRate}}
           </td>
+          <td>
+            <base-button type="warning" size="sm" class>Alterar</base-button>
+            <base-button type="danger" size="sm" class>Excluir</base-button>
+          </td>
         </template>
       </base-table>
     </div>

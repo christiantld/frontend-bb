@@ -27,7 +27,6 @@ import ProdutosTable from "./Dashboard/ProdutosTable";
 
 export default {
   components: {
-    EntradasTable,
     ProdutosTable
   },
   data() {

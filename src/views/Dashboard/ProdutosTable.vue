@@ -11,7 +11,7 @@
       </div>
     </div>
 
-    <div class="table-responsive">
+    <div class="table-responsive text-center">
       <base-table thead-classes="thead-light" :data="tableData">
         <template slot="columns">
           <th>Item</th>
@@ -26,6 +26,10 @@
           <td class="capitalize">{{row.marca}}</td>
           <td>{{row.qtd_total}}</td>
           <td class="capitalize">{{row.no_categoria}}</td>
+          <td>
+            <base-button type="warning" size="sm" class>Alterar</base-button>
+            <base-button type="danger" size="sm" class>Excluir</base-button>
+          </td>
         </template>
       </base-table>
     </div>

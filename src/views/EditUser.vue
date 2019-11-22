@@ -14,6 +14,9 @@
             <p
               class="text-white mt-0 mb-5"
             >Esta é a sua página de perfil, aqui você pode visualizar os seus dados e alterá-los,</p>
+            <router-link to="/profile">
+              <span class="btn mr-2 btn-info">Voltar</span>
+            </router-link>
           </div>
         </div>
       </div>
