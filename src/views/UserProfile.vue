@@ -71,7 +71,7 @@ export default {
   },
   methods: {
     getUsuario() {
-      this.$http.get(`/usuario?id=12`).then(async res => {
+      this.$http.get(`/usuario?id=6`).then(async res => {
         this.usuario = await res.data;
         const name = await this.usuario[0].no_usuario;
         const firstName = name.split(" ");
@@ -85,7 +85,12 @@ export default {
         confirm("Esta operaçāo é irreversível. Deseja apagar o seu perfil?")
       ) {
         this.$http.delete(`/usuario?id=${id}`).then(function(response) {
-          window.location = 
+          const status = JSON.parse(response.status);
+
+          //redirect logic
+          if (status == "200") {
+            this.$router.push("/login");
+          }
         });
       }
     }
