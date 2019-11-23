@@ -143,9 +143,9 @@ export default {
             texto: "Erro ao cadastrar. Confira os seus dados e tente novamente",
             tipo: "danger"
           });
-        }),
-        // eslint-disable-next-line
-        console.log(this.usuario);
+        });
+      // eslint-disable-next-line
+      console.log(this.usuario);
     },
 
     getCargos() {

@@ -10,7 +10,7 @@
       <div class="container-fluid d-flex align-items-center">
         <div class="row">
           <div class="col-lg-7 col-md-10">
-            <h1 class="display-2 text-white">Hello {{nome}}</h1>
+            <h1 class="display-2 text-white">Olá, {{nome}}</h1>
             <p
               class="text-white mt-0 mb-5"
             >Esta é a sua página de perfil, aqui você pode visualizar os seus dados e alterá-los,</p>
@@ -28,6 +28,14 @@
           <card shadow type="secondary">
             <div slot="header" class="bg-white border-0">
               <div class="row align-items-center">
+                <base-alert
+                  class="col-xl-12"
+                  show
+                  dismissible
+                  v-for="mensagem in mensagens"
+                  :key="mensagem.texto"
+                  :type="mensagem.tipo"
+                >{{mensagem.texto}}</base-alert>
                 <div class="col-8">
                   <h3 class="mb-0">Meu Perfil</h3>
                 </div>
@@ -76,7 +84,7 @@
                       />
                     </div>
                     <div class="col-lg-6">
-                      <span class="text-secondary">Cargo</span>
+                      <p class="text-gray-700 h5 mr-1">Cargo</p>
                       <select
                         name="cargo"
                         v-model="usuario[0].fk_cargo"
@@ -95,7 +103,7 @@
                 <hr class="my-4" />
 
                 <div class="col-12">
-                  <a href="#!" class="btn btn-info">Salvar</a>
+                  <base-button @click="updateUsuario(id)" type="primary" class="ml-3">Salvar</base-button>
                 </div>
               </form>
             </template>
@@ -112,9 +120,11 @@ export default {
     return {
       usuario: "",
       nome: "Usuário",
+      id: null,
       cargos: {
         cargos: []
-      }
+      },
+      mensagens: []
     };
   },
   methods: {
@@ -129,11 +139,33 @@ export default {
     getCargos() {
       this.$http("/cargos").then(res => {
         this.cargos = res.data;
-        console.log(this.cargos);
       });
+    },
+
+    updateUsuario(id) {
+      this.id = this.usuario[0].pk_usuario;
+      this.$http
+        .put(`/usuario?id=${id}`, this.usuario[0])
+        .then(resp => {
+          this.mensagens = [];
+          console.log(resp.data);
+          this.mensagens.push({
+            texto: "Atualização realizada com sucesso",
+            tipo: "success"
+          });
+          this.getUsuario(id);
+        })
+        .catch(err => {
+          this.mensagens.push({
+            texto: "Erro ao atualizar. Confira os seus dados e tente novamente",
+            tipo: "danger"
+          });
+          //console.log(err.resp);
+        });
     }
   },
   mounted() {
+    this.mensagens = [];
     this.getUsuario();
     this.getCargos();
   }
@@ -142,5 +174,8 @@ export default {
 <style>
 .capitalize {
   text-transform: capitalize;
+}
+.text-gray-700 {
+  color: #525f7f;
 }
 </style>
