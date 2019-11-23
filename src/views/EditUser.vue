@@ -40,8 +40,8 @@
                     <div class="col-lg-6">
                       <base-input
                         alternative
-                        label="Username"
-                        placeholder="Username"
+                        label="Usuário"
+                        placeholder="Usuário"
                         input-classes="form-control-alternative"
                         v-model="usuario[0].no_usuario"
                       />
@@ -49,8 +49,8 @@
                     <div class="col-lg-6">
                       <base-input
                         alternative
-                        label="Email address"
-                        placeholder="jesse@example.com"
+                        label="Email"
+                        placeholder="email@exemplo.com"
                         input-classes="form-control-alternative"
                         v-model="usuario[0].email"
                       />
@@ -60,8 +60,8 @@
                     <div class="col-lg-6">
                       <base-input
                         alternative
-                        label="First name"
-                        placeholder="First name"
+                        label="Telefone"
+                        placeholder="telefone"
                         input-classes="form-control-alternative"
                         v-model="usuario[0].telefone"
                       />
@@ -69,62 +69,30 @@
                     <div class="col-lg-6">
                       <base-input
                         alternative
-                        label="Last name"
-                        placeholder="Last name"
+                        label="CPF"
+                        placeholder="CPF"
                         input-classes="form-control-alternative"
                         v-model="usuario[0].nu_cpf"
                       />
                     </div>
+                    <div class="col-lg-6">
+                      <span class="text-secondary">Cargo</span>
+                      <select
+                        name="cargo"
+                        v-model="usuario[0].fk_cargo"
+                        class="input-group-alternative mb-3 text-muted required capitalize"
+                      >
+                        <option @load="getCargos" selected hidden disabled value>Escolha um cargo</option>
+                        <option
+                          v-for="cargo in cargos"
+                          :value="cargo.pk_cargo"
+                          :key="cargo.pk_cargo"
+                        >{{ cargo.no_cargo }}</option>
+                      </select>
+                    </div>
                   </div>
                 </div>
                 <hr class="my-4" />
-                <!-- Address -->
-                <h6 class="heading-small text-muted mb-4">Contact information</h6>
-                <!-- <div class="pl-lg-4">
-                  <div class="row">
-                    <div class="col-md-12">
-                      <base-input
-                        alternative
-                        label="Address"
-                        placeholder="Home Address"
-                        input-classes="form-control-alternative"
-                        v-model="model.address"
-                      />
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-lg-4">
-                      <base-input
-                        alternative
-                        label="City"
-                        placeholder="City"
-                        input-classes="form-control-alternative"
-                        v-model="model.city"
-                      />
-                    </div>
-                    <div class="col-lg-4">
-                      <base-input
-                        alternative
-                        label="Country"
-                        placeholder="Country"
-                        input-classes="form-control-alternative"
-                        v-model="model.country"
-                      />
-                    </div>
-                    <div class="col-lg-4">
-                      <base-input
-                        alternative
-                        label="Postal code"
-                        placeholder="Postal code"
-                        input-classes="form-control-alternative"
-                        v-model="model.zipCode"
-                      />
-                    </div>
-                  </div>
-                </div>-->
-                <hr class="my-4" />
-                <!-- Description -->
-                <h6 class="heading-small text-muted mb-4">About me</h6>
 
                 <div class="col-12">
                   <a href="#!" class="btn btn-info">Salvar</a>
@@ -143,22 +111,36 @@ export default {
   data() {
     return {
       usuario: "",
-      nome: "Usuário"
+      nome: "Usuário",
+      cargos: {
+        cargos: []
+      }
     };
   },
   methods: {
     getUsuario() {
-      this.$http.get(`/usuario?id=13`).then(async res => {
+      this.$http.get(`/usuario?id=6`).then(async res => {
         this.usuario = await res.data;
         const name = await this.usuario[0].no_usuario;
         const firstName = name.split(" ");
         this.nome = firstName[0];
       });
+    },
+    getCargos() {
+      this.$http("/cargos").then(res => {
+        this.cargos = res.data;
+        console.log(this.cargos);
+      });
     }
   },
   mounted() {
     this.getUsuario();
+    this.getCargos();
   }
 };
 </script>
-<style></style>
+<style>
+.capitalize {
+  text-transform: capitalize;
+}
+</style>
