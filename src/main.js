@@ -22,10 +22,12 @@ import router from "./router";
 import "./registerServiceWorker";
 import ArgonDashboard from "./plugins/argon-dashboard";
 import "./plugins/axios";
+import VueTheMask from "vue-the-mask";
 
 Vue.config.productionTip = false;
 
 Vue.use(ArgonDashboard);
+Vue.use(VueTheMask);
 new Vue({
   router,
   render: h => h(App)

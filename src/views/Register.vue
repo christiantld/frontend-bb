@@ -14,41 +14,42 @@
             <big>Informe seus dados</big>
           </div>
           <form method="post" role="form">
+            <!-- <the-mask
+              placeholder="Nome"
+              mask
+              v-model="usuario.no_usuario"
+              class="input-group-alternative mb-3 py-2 rounded text-muted col-xl-12 required"
+            />-->
             <base-input
               class="input-group-alternative mb-3 required"
               placeholder="Nome"
-              addon-left-icon="fa fa-user"
               v-model="usuario.no_usuario"
             ></base-input>
-
-            <base-input
+            <the-mask
+              placeholder="CPF"
+              mask="#########-##"
+              v-model="usuario.nu_cpf"
+              class="input-group-alternative mb-3 py-2 rounded text-muted col-xl-12 required"
+            />
+            <!-- <base-input
               class="input-group-alternative mb-3 required"
               placeholder="CPF"
               addon-left-icon="fa fa-id-card"
+              mask="#########-##"
               v-model="usuario.nu_cpf"
-            ></base-input>
-
-            <base-input
+            ></base-input>-->
+            <the-mask
+              placeholder="Telefone Celular"
+              mask="(##)#####-####"
+              v-model="usuario.telefone"
+              class="input-group-alternative mb-3 py-2 rounded text-muted col-xl-12 required"
+            />
+            <!-- <base-input
               class="input-group-alternative mb-3 required"
               placeholder="Telefone"
               addon-left-icon="fa fa-phone-square"
               v-model="usuario.telefone"
-            ></base-input>
-
-            <base-input
-              class="input-group-alternative mb-3 required"
-              placeholder="E-mail"
-              addon-left-icon="ni ni-email-83"
-              v-model="usuario.email"
-            ></base-input>
-
-            <base-input
-              class="input-group-alternative required"
-              placeholder="Senha"
-              type="password"
-              addon-left-icon="ni ni-lock-circle-open"
-              v-model="usuario.senha"
-            ></base-input>
+            ></base-input>-->
             <span class="ml-2 mr-5 text-muted">Cargo:</span>
             <select
               name="cargo"
@@ -67,6 +68,21 @@
               <option value="3">Auxiliar</option>
               <option value="4">Funcionario</option>-->
             </select>
+            <hr />
+            <base-input
+              class="input-group-alternative mb-3 required"
+              placeholder="E-mail"
+              addon-left-icon="ni ni-email-83"
+              v-model="usuario.email"
+            ></base-input>
+
+            <base-input
+              class="input-group-alternative required"
+              placeholder="Senha"
+              type="password"
+              addon-left-icon="ni ni-lock-circle-open"
+              v-model="usuario.senha"
+            ></base-input>
 
             <!-- <div class="text-muted font-italic required">
               <small>
@@ -162,5 +178,10 @@ export default {
 <style>
 .capitalize {
   text-transform: capitalize;
+}
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #adb5bd;
+  opacity: 1;
 }
 </style>

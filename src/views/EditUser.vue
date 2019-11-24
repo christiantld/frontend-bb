@@ -24,7 +24,7 @@
 
     <div class="container-fluid mt--7">
       <div class="row">
-        <div class="col-xl-8 order-xl-1">
+        <div class="col-xl-12 order-xl-1">
           <card shadow type="secondary">
             <div slot="header" class="bg-white border-0">
               <div class="row align-items-center">
@@ -58,6 +58,7 @@
                       <base-input
                         alternative
                         label="Email"
+                        type="email"
                         placeholder="email@exemplo.com"
                         input-classes="form-control-alternative"
                         v-model="usuario[0].email"
@@ -66,22 +67,36 @@
                   </div>
                   <div class="row">
                     <div class="col-lg-6">
-                      <base-input
+                      <p class="text-gray-700 h5 mr-1">Telefone Celular</p>
+                      <the-mask
+                        placeholder="(00) 00000-0000"
+                        mask="(##) #####-####"
+                        v-model="usuario[0].telefone"
+                        class="input-group-alternative mb-3 py-2 rounded text-muted col-xl-12 required"
+                      />
+                      <!-- <base-input
                         alternative
                         label="Telefone"
                         placeholder="telefone"
                         input-classes="form-control-alternative"
                         v-model="usuario[0].telefone"
-                      />
+                      />-->
                     </div>
                     <div class="col-lg-6">
-                      <base-input
+                      <p class="text-gray-700 h5 mr-1">CPF</p>
+                      <the-mask
+                        placeholder="CPF"
+                        mask="#########-##"
+                        v-model="usuario[0].nu_cpf"
+                        class="input-group-alternative mb-3 py-2 rounded text-muted col-xl-12 required"
+                      />
+                      <!-- <base-input
                         alternative
                         label="CPF"
                         placeholder="CPF"
                         input-classes="form-control-alternative"
                         v-model="usuario[0].nu_cpf"
-                      />
+                      />-->
                     </div>
                     <div class="col-lg-6">
                       <p class="text-gray-700 h5 mr-1">Cargo</p>
@@ -129,7 +144,7 @@ export default {
   },
   methods: {
     getUsuario() {
-      this.$http.get(`/usuario?id=6`).then(async res => {
+      this.$http.get(`/usuario?id=19`).then(async res => {
         this.usuario = await res.data;
         const name = await this.usuario[0].no_usuario;
         const firstName = name.split(" ");
@@ -177,5 +192,10 @@ export default {
 }
 .text-gray-700 {
   color: #525f7f;
+}
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #adb5bd;
+  opacity: 1;
 }
 </style>

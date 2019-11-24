@@ -17,7 +17,7 @@
             <router-link to="/edit_profile">
               <span class="btn mr-2 btn-info">Editar Perfil</span>
             </router-link>
-            <base-button @click="deleteUsuario(id)" type="danger" class="ml-3">Excluir</base-button>
+            <base-button @click="deleteUsuario(usuario)" type="danger" class="ml-3">Excluir</base-button>
           </div>
         </div>
       </div>
@@ -71,7 +71,7 @@ export default {
   },
   methods: {
     getUsuario() {
-      this.$http.get(`/usuario?id=1`).then(async res => {
+      this.$http.get(`/usuario?id=19`).then(async res => {
         this.usuario = await res.data;
         const name = await this.usuario[0].no_usuario;
         const firstName = name.split(" ");
@@ -79,14 +79,14 @@ export default {
       });
     },
 
-    deleteUsuario(id) {
+    deleteUsuario(usuario) {
       this.id = this.usuario[0].pk_usuario;
+      console.log(this.id);
       if (
         confirm("Esta operaçāo é irreversível. Deseja apagar o seu perfil?")
       ) {
         this.$http.delete(`/usuario?id=${id}`).then(resp => {
-          console.log(resp.data);
-          window.location = "/login";
+          console.log(resp.data.message);
         });
       }
     }
