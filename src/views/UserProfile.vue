@@ -71,7 +71,7 @@ export default {
   },
   methods: {
     getUsuario() {
-      this.$http.get(`/usuario?id=19`).then(async res => {
+      this.$http.get(`/usuario?id=1`).then(async res => {
         this.usuario = await res.data;
         const name = await this.usuario[0].no_usuario;
         const firstName = name.split(" ");
@@ -81,7 +81,7 @@ export default {
 
     deleteUsuario(usuario) {
       this.id = this.usuario[0].pk_usuario;
-      console.log(this.id);
+
       if (
         confirm("Esta operaçāo é irreversível. Deseja apagar o seu perfil?")
       ) {

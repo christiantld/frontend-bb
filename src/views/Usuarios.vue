@@ -57,14 +57,9 @@
   </div>
 </template>
 <script>
-// Tables
-//import ProdutosTable from "./Dashboard/ProdutosTable";
-
 export default {
   data() {
     return {
-      //tableData: [],
-
       usuarios: []
     };
   },

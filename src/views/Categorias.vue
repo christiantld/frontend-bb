@@ -2,7 +2,7 @@
   <div>
     <base-header type="gradient-success" class="pb-6 pb-8 pt-5 pt-md-8">
       <!-- Card stats -->
-      <div class="categoria">
+      <div class="row">
         <div class="col-xl-3 col-lg-6"></div>
       </div>
     </base-header>
@@ -14,7 +14,7 @@
           <div class="col-xl-5 order-xl-0">
             <card shadow type="secondary">
               <div slot="header" class="bg-white border-0">
-                <div class="categoria align-categorias-center">
+                <div class="row align-categorias-center">
                   <div class="col-8">
                     <h3 class="mb-0">Adiconar Categoria</h3>
                   </div>
@@ -24,7 +24,7 @@
                 <form @submit.prevent>
                   <div class="pl-lg-4">
                     <div class="row">
-                      <div class="col-lg-6">
+                      <div class="col-lg-12">
                         <base-input
                           alternative
                           label="Categoria"
@@ -33,11 +33,6 @@
                           v-model="categoria.no_categoria"
                         />
                       </div>
-
-                      <!-- <div class="col-lg-6">
-                        <p class="text-gray-700 h5 mr-1">Descriçāo</p>
-                        <textarea name id cols="30" categorias="10" placeholder="Opicional"></textarea>
-                      </div>-->
                     </div>
                   </div>
                   <hr class="my-4" />
@@ -52,7 +47,7 @@
           <div class="col-xl-5">
             <div class="card">
               <div class="card-header border-0">
-                <div class="categoria align-categorias-center">
+                <div class="row align-categorias-center">
                   <div class="col">
                     <h3 class="mb-0">Categorias</h3>
                   </div>
@@ -93,25 +88,17 @@
           </div>
         </div>
       </div>
-      <!-- End charts-->
 
       <!--Tables-->
-      <div class="categoria mt-5"></div>
+      <div class="row mt-5"></div>
       <!--End tables-->
     </div>
   </div>
 </template>
 <script>
-// Tables
-//import categoriasTable from "./Dashboard/categoriasTable";
-
 export default {
-  // components: {
-  //   categoriasTable
-  // },
   data() {
     return {
-      //tableData: [],
       categoria: {
         no_categoria: ""
       },
@@ -130,7 +117,6 @@ export default {
     editar(categoria) {
       this.categoria = categoria;
       this.id = categoria.pk_categoria;
-      console.log(this.categoria);
     },
 
     salvar() {

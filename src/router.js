@@ -45,6 +45,24 @@ export default new Router({
           name: "categorias",
           component: () =>
             import(/* webpackChunkName: "demo" */ "./views/Categorias.vue")
+        },
+        {
+          path: "/fornecedores",
+          name: "fornecedores",
+          component: () =>
+            import(/* webpackChunkName: "demo" */ "./views/Fornecedores.vue")
+        },
+        {
+          path: "/entradas",
+          name: "entradas",
+          component: () =>
+            import(/* webpackChunkName: "demo" */ "./views/Entradas.vue")
+        },
+        {
+          path: "/saidas",
+          name: "saidas",
+          component: () =>
+            import(/* webpackChunkName: "demo" */ "./views/Saidas.vue")
         }
       ]
     },

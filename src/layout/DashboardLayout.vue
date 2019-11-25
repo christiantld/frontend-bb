@@ -2,16 +2,27 @@
   <div class="wrapper" :class="{ 'nav-open': $sidebar.showSidebar }">
     <side-bar :background-color="sidebarBackground" short-title="Argon" title="Argon">
       <template slot="links">
-        <sidebar-item :link="{name: 'Produtos', icon: 'ni ni-planet text-red', path: '/produtos'}" />
         <sidebar-item
-          :link="{name: 'Categorias', icon: 'ni ni-planet text-purple', path: '/categorias'}"
+          :link="{name: 'Estoque', icon: 'fa fa-shopping-cart text-red', path: '/produtos'}"
+        />
+        <sidebar-item
+          :link="{name: 'Entradas', icon: 'fa fa-arrow-up text-primary', path: '/entradas'}"
+        />
+        <sidebar-item
+          :link="{name: 'Saidas', icon: 'fa fa-arrow-down text-warning', path: '/saidas'}"
+        />
+        <sidebar-item
+          :link="{name: 'Categorias', icon: 'fa fa-star text-purple', path: '/categorias'}"
+        />
+        <sidebar-item
+          :link="{name: 'Fornecedores', icon: 'fa fa-shopping-bag text-green', path: '/fornecedores'}"
         />
 
         <sidebar-item
           :link="{name: 'Perfil do Usuário', icon: 'ni ni-single-02 text-yellow', path: '/profile'}"
         />
         <sidebar-item
-          :link="{name: 'Listar Usuários', icon: 'ni ni-single-02 text-success', path: '/usuarios'}"
+          :link="{name: 'Listar Usuários', icon: 'fa fa-users text-orange', path: '/usuarios'}"
         />
         <hr />
         <sidebar-item :link="{name: 'Entrar', icon: 'ni ni-key-25 text-info', path: '/login'}" />

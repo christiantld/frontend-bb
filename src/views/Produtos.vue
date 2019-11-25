@@ -2,7 +2,7 @@
   <div>
     <base-header type="gradient-success" class="pb-6 pb-8 pt-5 pt-md-8">
       <!-- Card stats -->
-      <div class="item">
+      <div class="row">
         <div class="col-xl-3 col-lg-6"></div>
       </div>
     </base-header>
@@ -14,7 +14,7 @@
           <div class="col-xl-12 order-xl-1">
             <card shadow type="secondary">
               <div slot="header" class="bg-white border-0">
-                <div class="item align-items-center">
+                <div class="row align-items-center">
                   <base-alert
                     class="col-xl-12"
                     show
@@ -60,13 +60,6 @@
                           v-model="item.qtd_minima"
                           class="input-group-alternative mb-3 py-2 rounded text-muted col-xl-12 required"
                         />
-                        <!-- <base-input
-                          alternative
-                          label="Quantidade Mínima"
-                          placeholder="Quantidade Mínima"
-                          input-classes="form-control-alternative"
-                          v-model="item.qtd_minima"
-                        />-->
                       </div>
                       <div class="col-lg-6">
                         <p class="text-gray-700 h5 mr-1">Quantidade Máxima</p>
@@ -77,13 +70,6 @@
                           required
                           class="input-group-alternative mb-3 py-2 rounded text-muted col-xl-12 required"
                         />
-                        <!-- <base-input
-                          alternative
-                          label="Quantidade Máxima"
-                          placeholder="Quantidade Máxima"
-                          input-classes="form-control-alternative"
-                          v-model="item.qtd_max"
-                        />-->
                       </div>
                       <div class="col-lg-6">
                         <p class="text-gray-700 h5 mr-1">Categoria</p>
@@ -106,10 +92,6 @@
                           >{{ categoria.no_categoria}}</option>
                         </select>
                       </div>
-                      <!-- <div class="col-lg-6">
-                        <p class="text-gray-700 h5 mr-1">Descriçāo</p>
-                        <textarea name id cols="30" items="10" placeholder="Opicional"></textarea>
-                      </div>-->
                     </div>
                   </div>
                   <hr class="my-4" />
@@ -126,11 +108,11 @@
       <!-- End charts-->
 
       <!--Tables-->
-      <div class="item mt-5">
+      <div class="row mt-5">
         <div class="col-xl-12">
           <div class="card">
             <div class="card-header border-0">
-              <div class="item align-items-center">
+              <div class="row align-items-center">
                 <div class="col">
                   <h3 class="mb-0">Estoque</h3>
                 </div>
@@ -175,16 +157,9 @@
   </div>
 </template>
 <script>
-// Tables
-//import ProdutosTable from "./Dashboard/ProdutosTable";
-
 export default {
-  // components: {
-  //   ProdutosTable
-  // },
   data() {
     return {
-      //tableData: [],
       item: {
         no_produto: "",
         marca: "",
@@ -220,7 +195,6 @@ export default {
       this.item.qtd_minima = parseInt(this.item.qtd_minima);
       this.item.qtd_max = parseInt(this.item.qtd_max);
       this.id = item.pk_produto;
-      console.log(this.item);
     },
 
     salvar() {
