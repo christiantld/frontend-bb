@@ -89,7 +89,7 @@
                 <thead>
                   <tr>
                     <th>Item</th>
-                    <th>Fornecedor</th>
+                    <th>Marca</th>
                     <th>Quantidade</th>
                     <th>Data de saida</th>
                     <th>Usuário</th>
@@ -101,7 +101,7 @@
                 <tbody>
                   <tr v-for="saida in saidas" :key="saida.pk_saida">
                     <th class="capitalize">{{saida.no_produto}}</th>
-                    <td class="capitalize">{{saida.no_fornecedor}}</td>
+                    <td class="capitalize">{{saida.marca}}</td>
                     <td>{{saida.qtd_item}}</td>
                     <td>{{saida.data_saida}}</td>
                     <td>{{saida.no_usuario}}</td>
@@ -171,7 +171,6 @@ export default {
       this.saida = saida;
       this.saida.qtd_minima = parseInt(this.saida.qtd_item);
       this.id = saida.pk_saida;
-      console.log(this.saida);
     },
 
     salvar() {

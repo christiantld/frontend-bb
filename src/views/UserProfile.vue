@@ -30,7 +30,7 @@
             <div class="row justify-content-center">
               <div class="col-lg-3 order-lg-2">
                 <div class="card-profile-image mb-5 pb-5">
-                  <img src="img/theme/vue.jpg" class="rounded-circle" />
+                  <img src="img/brand/logo.png" class="rounded-circle" />
                 </div>
               </div>
             </div>
