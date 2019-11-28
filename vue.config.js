@@ -22,7 +22,5 @@ module.exports = {
     sourceMap: process.env.NODE_ENV !== "production"
   },
 
-  devServer: {
-    proxy: "backend-bb.herokuapp.com"
-  }
+
 };
