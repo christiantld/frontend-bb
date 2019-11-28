@@ -6,7 +6,8 @@
     "serve": "vue-cli-service serve",
     "dev": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "start": "node serve.js"
   },
   "dependencies": {
     "axios": "^0.19.0",
@@ -14,9 +15,11 @@
     "bootstrap-vue": "2.0.0-rc.15",
     "chart.js": "2.8.0",
     "core-js": "2.6.5",
+    "express": "^4.17.1",
     "flatpickr": "4.5.7",
     "nouislider": "13.1.4",
     "register-service-worker": "1.6.2",
+    "serve-static": "^1.14.1",
     "v-mask": "^2.0.2",
     "vue": "2.6.6",
     "vue-chartjs": "3.4.2",

@@ -23,6 +23,6 @@ module.exports = {
   },
 
   devServer: {
-    proxy: "http://192.168.64.2/"
+    proxy: "backend-bb.herokuapp.com"
   }
 };
