@@ -9,6 +9,10 @@
     "lint": "vue-cli-service lint",
     "start": "node serve.js"
   },
+  "engines": {
+        "npm": "6.13.1",
+        "node": "11.14.0"
+      },
   "dependencies": {
     "axios": "^0.19.0",
     "bootstrap": "4.3.1",
@@ -65,8 +69,4 @@
     "last 2 versions",
     "not ie <= 8"
   ]
-},
-"engines": {
-        "npm": "6.13.1",
-        "node": "11.14.0"
-      }
+}
