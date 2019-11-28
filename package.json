@@ -7,7 +7,7 @@
     "dev": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "start": "node serve.js"
+    "start": "node server.js"
   },
   "engines": {
         "npm": "6.13.1",
