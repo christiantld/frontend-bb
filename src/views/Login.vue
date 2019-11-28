@@ -22,7 +22,7 @@
               type="password"
               addon-left-icon="ni ni-lock-circle-open"
               v-model="usuario.senha"
-            ></base-input><
+            ></base-input>
             <div class="text-center">
               <base-button type="primary" class="my-5">Entrar</base-button>
             </div>

@@ -159,7 +159,7 @@ export default {
     editar(fornecedor) {
       this.fornecedor = fornecedor;
       this.id = fornecedor.pk_fornecedor;
-      console.log(this.fornecedor);
+      
     },
 
     salvar() {
@@ -174,6 +174,7 @@ export default {
           this.limpar();
         });
       }
+      
     },
 
     excluir(fornecedor) {

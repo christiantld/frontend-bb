@@ -78,6 +78,7 @@
                     <div class="col-lg-6">
                       <p class="text-gray-700 h5 mr-1">CPF</p>
                       <the-mask
+                    
                         placeholder="CPF"
                         mask="#########-##"
                         v-model="usuario[0].nu_cpf"
@@ -146,7 +147,7 @@ export default {
     updateUsuario(id) {
       this.id = this.usuario[0].pk_usuario;
       this.$http
-        .put(`/usuario?id=${id}`, this.usuario[0])
+        .put(`/usuario?id=1`, this.usuario[0])
         .then(resp => {
           this.mensagens = [];
           console.log(resp.data);

@@ -198,6 +198,7 @@ export default {
     },
 
     salvar() {
+    
       if (!this.id) {
         this.$http.post("/produto", this.item).then(resp => {
           this.getProdutos();
@@ -209,6 +210,7 @@ export default {
           this.limpar();
         });
       }
+      console.log(this.item.qtd_minima)
     },
 
     excluir(item) {
