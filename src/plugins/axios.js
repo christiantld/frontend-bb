@@ -10,8 +10,8 @@ Vue.use({
   install(Vue) {
     Vue.prototype.$http = axios.create({
       //Base URL da API
-      baseURL: "http://localhost:8080/index.php"
+      baseURL: "https://backend-bb.herokuapp.com/index.php",
       //baseURL: "https://jsonplaceholder.typicode.com/todos/1"
     });
-  }
+  },
 });

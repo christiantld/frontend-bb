@@ -10,9 +10,9 @@
     "start": "node server.js"
   },
   "engines": {
-        "npm": "6.13.1",
-        "node": "11.14.0"
-      },
+    "npm": "6.13.1",
+    "node": "11.14.0"
+  },
   "dependencies": {
     "axios": "^0.19.0",
     "bootstrap": "4.3.1",
@@ -41,7 +41,7 @@
     "babel-eslint": "^8.2.6",
     "eslint": "^6.6.0",
     "eslint-plugin-vue": "^5.0.0",
-    "node-sass": "^4.9.0",
+    "node-sass": "^4.14.1",
     "sass-loader": "^7.1.0",
     "vue-template-compiler": "2.6.6"
   },
